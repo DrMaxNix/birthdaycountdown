@@ -3,7 +3,9 @@ package de.drmaxnix.birthdaycountdown;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -13,6 +15,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
+import android.util.Log;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -151,61 +155,9 @@ public class MainActivity extends AppCompatActivity {
 		
 		
 		// INITIALIZE DATE SELECT //
-		// date picker dialog
-		DatePickerDialog.OnDateSetListener date_select_picker = (view, year, month, day) -> {
-			// UPDATE SETTINGS-STORE //
-			// get editor object
-			SharedPreferences.Editor editor = settings_store.edit();
-			
-			// store
-			editor.putInt("birthdate.year", year);
-			editor.putInt("birthdate.month", month);
-			editor.putInt("birthdate.day", day);
-			
-			// apply changes
-			editor.apply();
-			
-			
-			// RELOAD VALUES //
-			birthdate[0] = year;
-			birthdate[1] = month;
-			birthdate[2] = day;
-			
-			
-			// UPDATE UI //
-			// birth date
-			date_select_update();
-			
-			// overview countdown
-			update_overview_countdown();
-			
-			// milestones
-			update_milestones();
-		};
-		
 		// on-click listener
 		date_select_container.setOnClickListener(view -> {
-			// get default values for date picker
-			int default_year;
-			int default_month;
-			int default_day;
-			
-			if(birthdate[0] > -1 && birthdate[1] > -1 && birthdate[2] > -1){
-				// use stored date
-				default_year = birthdate[0];
-				default_month = birthdate[1];
-				default_day = birthdate[2];
-				
-			} else {
-				// no date set yet, use today
-				final Calendar now = Calendar.getInstance();
-				default_year = now.get(Calendar.YEAR);
-				default_month = now.get(Calendar.MONTH);
-				default_day = now.get(Calendar.DAY_OF_MONTH);
-			}
-			
-			// open date picker dialog
-			new DatePickerDialog(MainActivity.this, date_select_picker, default_year, default_month, default_day).show();
+			birthdate_picker_open();
 		});
 		
 		// load date into textview
@@ -220,6 +172,101 @@ public class MainActivity extends AppCompatActivity {
 		update_handler.post(update_runnable);
 	}
 	
+	
+	/*
+		HELPER: Open date picker for birthdate
+	*/
+	private void birthdate_picker_open(){
+		// GET DEFAULT VALUES FOR DATE PICKER //
+		int default_year;
+		int default_month;
+		int default_day;
+		
+		if(birthdate[0] > -1 && birthdate[1] > -1 && birthdate[2] > -1){
+			// use stored date
+			default_year = birthdate[0];
+			default_month = birthdate[1];
+			default_day = birthdate[2];
+			
+		} else {
+			// no date set yet, use today
+			final Calendar now = Calendar.getInstance();
+			default_year = now.get(Calendar.YEAR);
+			default_month = now.get(Calendar.MONTH);
+			default_day = now.get(Calendar.DAY_OF_MONTH);
+		}
+		
+		
+		// OPEN DATE PICKER WITH THESE VALUES //
+		birthdate_picker_open(default_year, default_month, default_day);
+	}
+	private void birthdate_picker_open(int default_year, int default_month, int default_day){
+		// DATE PICKED CALLBACK //
+		DatePickerDialog.OnDateSetListener on_date_set = (view, year, month, day) -> {
+			// birth year too recent?
+			final Calendar now = Calendar.getInstance();
+			int current_year = now.get(Calendar.YEAR);
+			if(current_year - year <= 2){
+				// dialog
+				AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+				alertDialog.setTitle("Recent Date of Birth");
+				alertDialog.setMessage("You selected " + year + " as your Birth Year. Are you sure you want to use this year?");
+				
+				// "use"-btn, set this as birthdate
+				alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Use " + year, (dialog, which) -> birthdate_set(year, month, day));
+				
+				// "change"-btn, open date picker dialog again
+				alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Change", (dialog, which) -> birthdate_picker_open(year, month, day));
+				
+				// show
+				alertDialog.show();
+				
+				// stop here
+				return;
+			}
+			
+			// set new birthdate
+			birthdate_set(year, month, day);
+		};
+		
+		
+		// OPEN DATE PICKER DIALOG //
+		new DatePickerDialog(MainActivity.this, on_date_set, default_year, default_month, default_day).show();
+	}
+	
+	/*
+		HELPER: Set new birth date
+	*/
+	private void birthdate_set(int year, int month, int day){
+		// UPDATE SETTINGS-STORE //
+		// get editor object
+		SharedPreferences.Editor editor = settings_store.edit();
+		
+		// store
+		editor.putInt("birthdate.year", year);
+		editor.putInt("birthdate.month", month);
+		editor.putInt("birthdate.day", day);
+		
+		// apply changes
+		editor.apply();
+		
+		
+		// RELOAD VALUES //
+		birthdate[0] = year;
+		birthdate[1] = month;
+		birthdate[2] = day;
+		
+		
+		// UPDATE UI //
+		// birth date
+		date_select_update();
+		
+		// overview countdown
+		update_overview_countdown();
+		
+		// milestones
+		update_milestones();
+	}
 	
 	/*
 		HELPER: Update value of date select text
