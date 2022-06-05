@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/black"
+	tools:context="de.drmaxnix.birthdaycountdown.MainActivity">
+	
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		app:layout_constraintTop_toTopOf="parent">
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@color/theme_dark"
+			android:orientation="horizontal">
+			
+			<ImageView
+				android:id="@+id/imageView2"
+				android:layout_width="?actionBarSize"
+				android:layout_height="?actionBarSize"
+				android:layout_gravity="start|center_vertical"
+				android:contentDescription="@string/content_description_app_icon"
+				app:srcCompat="@mipmap/icon_foreground" />
+			
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:minHeight="?actionBarSize"
+				android:paddingStart="0dp"
+				android:paddingTop="16dp"
+				android:paddingEnd="0dp"
+				android:paddingBottom="16dp"
+				android:text="@string/app_name"
+				android:textAlignment="viewStart"
+				android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+				android:textColor="@color/white" />
+			
+			<TextView
+				android:id="@+id/version"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:minHeight="?actionBarSize"
+				android:paddingStart="6dp"
+				android:paddingTop="16dp"
+				android:paddingEnd="16dp"
+				android:paddingBottom="16dp"
+				android:textAlignment="viewStart"
+				android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+				android:textColor="@color/white" />
+		</LinearLayout>
+		
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			
+			<LinearLayout
+				android:id="@+id/content_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<LinearLayout
+					android:id="@+id/overview_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_margin="16dp"
+					android:padding="16dp"
+					android:background="@color/theme">
+					
+					<LinearLayout
+						android:id="@+id/countdown"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:gravity="center_horizontal"
+						android:layoutDirection="ltr"
+						tools:ignore="UselessParent">
+						
+						<TextView
+							android:id="@+id/countdown_days"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/countdown_days_placeholder"
+							
+							android:typeface="monospace"
+							android:textSize="56sp"
+							android:textColor="@color/white"/>
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="4dp"
+							android:text="@string/countdown_days_unit"
+							android:textSize="24sp"
+							android:textColor="@color/white"/>
+						
+						<TextView
+							android:id="@+id/countdown_hours"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/countdown_hours_placeholder"
+							android:layout_marginStart="16dp"
+							android:typeface="monospace"
+							android:textSize="56sp"
+							android:textColor="@color/white"/>
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="4dp"
+							android:text="@string/countdown_hours_unit"
+							android:textSize="24sp"
+							android:textColor="@color/white"/>
+						
+						<TextView
+							android:id="@+id/countdown_minutes"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/countdown_minutes_placeholder"
+							android:layout_marginStart="16dp"
+							android:typeface="monospace"
+							android:textSize="24sp"
+							android:textColor="@color/white"/>
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="4dp"
+							android:text="@string/countdown_minutes_unit"
+							android:textSize="24sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+				</LinearLayout>
+				
+				<LinearLayout
+					android:id="@+id/date_select_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:gravity="center_horizontal"
+					android:layout_marginHorizontal="16dp"
+					android:layout_marginBottom="16dp"
+					android:padding="16dp"
+					android:background="@color/gray_dark">
+					
+					<TextView
+						android:id="@+id/date_select_text"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/select_date_button"
+						android:textSize="24sp"
+						android:textColor="@color/white"/>
+				</LinearLayout>
+				
+				
+				
+				
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center"
+					android:background="@color/theme_dark"
+					android:padding="8dp">
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/milestone_header"
+						android:textSize="16sp"
+						android:textColor="@color/white" />
+				</LinearLayout>
+				
+				<LinearLayout
+					android:id="@+id/milestone_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_margin="16dp">
+					
+					<LinearLayout
+						android:id="@+id/milestone_last_birthday_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:id="@+id/milestone_last_birthday_age"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_birthday_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_last_birthday_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_350_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_350"
+								android:textColor="@color/white"
+								android:textSize="24sp"
+								android:typeface="monospace" />
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_350_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_300_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_300"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_300_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_250_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_250"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_250_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_200_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_200"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_200_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_150_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_150"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_150_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_100_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_100"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_100_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_75_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_75"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_75_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_50_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_50"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_50_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_30_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_30"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_30_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_15_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_15"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_15_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_7_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal"
+							tools:ignore="TooManyViews">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_7"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_7_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_3_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_3"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_3_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_1_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:layout_marginBottom="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="@string/milestone_number_1"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_day_unit_one"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_1_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/milestone_next_birthday_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:padding="16dp"
+						android:orientation="horizontal"
+						android:background="@color/gray_dark"
+						android:layoutDirection="ltr">
+						
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal">
+							
+							<TextView
+								android:id="@+id/milestone_next_birthday_age"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:typeface="monospace"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+							<TextView
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginStart="4dp"
+								android:text="@string/milestone_birthday_unit"
+								android:textSize="24sp"
+								android:textColor="@color/white"/>
+						</LinearLayout>
+						
+						<TextView
+							android:id="@+id/milestone_next_birthday_countdown"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:gravity="end"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+				</LinearLayout>
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center"
+					android:background="@color/theme_dark"
+					android:padding="8dp">
+					
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="@string/about_header"
+						android:textSize="16sp"
+						android:textColor="@color/white" />
+				</LinearLayout>
+				
+				<LinearLayout
+					android:id="@+id/about_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_margin="16dp">
+					
+					<LinearLayout
+						android:id="@+id/text_container"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:layout_marginBottom="16dp"
+						android:padding="16dp"
+						android:background="@color/gray_dark">
+						
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="4dp"
+							android:text="@string/about_description"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+					
+					<LinearLayout
+						android:id="@+id/about_website_button"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical"
+						android:gravity="center_horizontal"
+						android:padding="8dp"
+						android:background="@color/theme">
+						
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/about_website_button"
+							android:textSize="16sp"
+							android:textColor="@color/white"/>
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+		</ScrollView>
+	</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
