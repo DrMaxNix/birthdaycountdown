@@ -4,7 +4,9 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/DrMaxNix/birthdaycountdown/blob/main/LICENSE)
 [![Maintaner](https://img.shields.io/badge/maintainer-DrMaxNix-blue)](https://www.drmaxnix.de)
 
-An Android App counting down to your next birthday
+An Android App counting down to your next birthday!
+
+![Android Screenshots](https://github.com/DrMaxNix/birthdaycountdown/blob/main/assets/screenshots-scaled.png "Android Screenshots")
 
 
 
