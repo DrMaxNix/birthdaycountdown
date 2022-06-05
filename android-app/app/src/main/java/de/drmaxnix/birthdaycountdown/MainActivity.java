@@ -209,8 +209,8 @@ public class MainActivity extends AppCompatActivity {
 			if(current_year - year <= 2){
 				// dialog
 				AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-				alertDialog.setTitle("Recent Date of Birth");
-				alertDialog.setMessage("You selected " + year + " as your Birth Year. Are you sure you want to use this year?");
+				alertDialog.setTitle("Birth Year " + year);
+				alertDialog.setMessage("You selected " + year + " as your Year of Birth. Are you sure you want to use this year?");
 				
 				// "use"-btn, set this as birthdate
 				alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Use " + year, (dialog, which) -> birthdate_set(year, month, day));
