@@ -6,7 +6,7 @@
 
 An Android App counting down to your next birthday!
 
-![Android Screenshots](https://github.com/DrMaxNix/birthdaycountdown/blob/main/assets/screenshots-scaled.png "Android Screenshots")
+![Android Screenshots](https://raw.githubusercontent.com/DrMaxNix/birthdaycountdown/main/assets/screenshots-scaled.png "Android Screenshots")
 
 
 
