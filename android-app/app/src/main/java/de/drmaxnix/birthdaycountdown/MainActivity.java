@@ -153,9 +153,7 @@ public class MainActivity extends AppCompatActivity {
 		
 		// INITIALIZE DATE SELECT //
 		// on-click listener
-		date_select_container.setOnClickListener(view -> {
-			birthdate_picker_open();
-		});
+		date_select_container.setOnClickListener(view -> birthdate_picker_open());
 		
 		// load date into textview
 		date_select_update();
