@@ -1,0 +1,7 @@
+Birthday Countdown is a Free and Open Source App for Android Phones counting down to your next birthday.
+
+Can't await your next birthday? Me neither! So I built this Countdown App for you ^^
+~ Kim &lt;33
+
+<b>Features</b>
+<ul><li>Customizable birth date</li><li>Countdown to next birthday</li><li>Milestones on the way to next birthday</li></ul>
