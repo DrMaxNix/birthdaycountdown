@@ -23,4 +23,4 @@ An Android App counting down to your next birthday!
 
 
 ## License
-Birthday Countdown uses [tabler icons](https://tabler-icons.io/) (the crown in the app icon). Its MIT License can be found [here](../blob/master/LICENSE-tabler-icons)
+Birthday Countdown uses [tabler icons](https://tabler-icons.io/) (the crown in the app icon). Its MIT License can be found [here](../main/LICENSE-tabler-icons)
