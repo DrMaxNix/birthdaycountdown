@@ -17,3 +17,10 @@ An Android App counting down to your next birthday!
 2. Run downloaded apk-file
 3. You may get asked if you want to install this app from an unknown source
 4. Open the installed Birthday Countdown App
+
+
+
+
+
+## License
+Birthday Countdown uses [tabler icons](https://tabler-icons.io/) (the crown in the app icon). Its MIT License can be found [here](../blob/master/LICENSE-tabler-icons)
