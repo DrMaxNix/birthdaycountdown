@@ -9,17 +9,18 @@ An Android App counting down to your next birthday!
 ![Android Screenshots](https://raw.githubusercontent.com/DrMaxNix/birthdaycountdown/main/assets/screenshots-scaled.png "Android Screenshots")
 
 
-
-
-
 ## Installation
-1. Download apk-file: [birthdaycountdown-android-v1-0-0.apk](https://github.com/DrMaxNix/birthdaycountdown/releases/download/v1.0.0/birthdaycountdown-android-v1-0-0.apk "Android APK v1.0.0")
+
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/de.drmaxnix.birthdaycountdown/)
+
+Or
+
+1. Download the latest APK from the [release section](https://github.com/DrMaxNix/birthdaycountdown/releases/latest)
 2. Run downloaded apk-file
 3. You may get asked if you want to install this app from an unknown source
 4. Open the installed Birthday Countdown App
-
-
-
 
 
 ## License
