@@ -11,9 +11,9 @@ An Android App counting down to your next birthday!
 
 ## Installation
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/de.drmaxnix.birthdaycountdown/)
+<a href="https://f-droid.org/packages/de.drmaxnix.birthdaycountdown/">
+	<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">
+</a>
 
 Or
 
