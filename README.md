@@ -1,8 +1,8 @@
 # Birthday Countdown
-[![GitHub repository](https://img.shields.io/badge/GitHub-DrMaxNix/birthdaycountdown-lightgrey)](https://github.com/DrMaxNix/birthdaycountdown)
-[![GitHub release](https://img.shields.io/badge/release-v1.0.0-orange)](https://github.com/DrMaxNix/birthdaycountdown/releases/tag/v1.0.0)
+[![GitHub release](https://img.shields.io/github/release/DrMaxNix/birthdaycountdown.svg?logo=github)](https://github.com/DrMaxNix/birthdaycountdown/releases/latest)
+[![F-Droid](https://img.shields.io/f-droid/v/de.drmaxnix.birthdaycountdown.svg?logo=fdroid)](https://f-droid.org/packages/de.drmaxnix.birthdaycountdown/)
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/DrMaxNix/birthdaycountdown/blob/main/LICENSE)
-[![Maintaner](https://img.shields.io/badge/maintainer-DrMaxNix-blue)](https://www.drmaxnix.de)
+[![Maintaner](https://img.shields.io/badge/maintainer-DrMaxNix-orange)](https://www.drmaxnix.de)
 
 An Android App counting down to your next birthday!
 
