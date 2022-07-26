@@ -24,4 +24,4 @@ Or
 
 
 ## License
-Birthday Countdown uses [tabler icons](https://tabler-icons.io/) (the crown in the app icon). Its MIT License can be found [here](../main/LICENSE-tabler-icons)
+Birthday Countdown uses [tabler icons](https://tabler-icons.io/) (the crown in the app icon). Its MIT License can be found [here](https://github.com/DrMaxNix/birthdaycountdown/blob/main/LICENSE-tabler-icons)
