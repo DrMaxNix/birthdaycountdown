@@ -84,53 +84,55 @@
 						tools:ignore="UselessParent">
 						
 						<TextView
-							android:id="@+id/countdown_days"
+							android:id="@+id/countdown_part_0"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="@string/countdown_days_placeholder"
-							
+							android:text="@string/countdown_part_0_placeholder"
 							android:typeface="monospace"
 							android:textSize="56sp"
 							android:textColor="@color/white"/>
 						<TextView
+							android:id="@+id/countdown_part_0_unit"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_marginStart="4dp"
-							android:text="@string/countdown_days_unit"
+							android:text="@string/countdown_part_0_unit_placeholder"
 							android:textSize="24sp"
 							android:textColor="@color/white"/>
 						
 						<TextView
-							android:id="@+id/countdown_hours"
+							android:id="@+id/countdown_part_1"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="@string/countdown_hours_placeholder"
+							android:text="@string/countdown_part_1_placeholder"
 							android:layout_marginStart="16dp"
 							android:typeface="monospace"
 							android:textSize="56sp"
 							android:textColor="@color/white"/>
 						<TextView
+							android:id="@+id/countdown_part_1_unit"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_marginStart="4dp"
-							android:text="@string/countdown_hours_unit"
+							android:text="@string/countdown_part_1_unit_placeholder"
 							android:textSize="24sp"
 							android:textColor="@color/white"/>
 						
 						<TextView
-							android:id="@+id/countdown_minutes"
+							android:id="@+id/countdown_part_2"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							android:text="@string/countdown_minutes_placeholder"
+							android:text="@string/countdown_part_2_placeholder"
 							android:layout_marginStart="16dp"
 							android:typeface="monospace"
 							android:textSize="24sp"
 							android:textColor="@color/white"/>
 						<TextView
+							android:id="@+id/countdown_part_2_unit"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:layout_marginStart="4dp"
-							android:text="@string/countdown_minutes_unit"
+							android:text="@string/countdown_part_2_unit_placeholder"
 							android:textSize="24sp"
 							android:textColor="@color/white"/>
 					</LinearLayout>

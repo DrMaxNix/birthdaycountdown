@@ -28,9 +28,12 @@ public class MainActivity extends AppCompatActivity {
 	
 	int[] birthdate = new int[3];
 	
-	TextView countdown_days;
-	TextView countdown_hours;
-	TextView countdown_minutes;
+	TextView countdown_part_0;
+	TextView countdown_part_0_unit;
+	TextView countdown_part_1;
+	TextView countdown_part_1_unit;
+	TextView countdown_part_2;
+	TextView countdown_part_2_unit;
 	
 	LinearLayout date_select_container;
 	TextView date_select_text;
@@ -91,9 +94,12 @@ public class MainActivity extends AppCompatActivity {
 		
 		
 		// BIND VIEWS //
-		countdown_days = findViewById(R.id.countdown_days);
-		countdown_hours = findViewById(R.id.countdown_hours);
-		countdown_minutes = findViewById(R.id.countdown_minutes);
+		countdown_part_0 = findViewById(R.id.countdown_part_0);
+		countdown_part_0_unit = findViewById(R.id.countdown_part_0_unit);
+		countdown_part_1 = findViewById(R.id.countdown_part_1);
+		countdown_part_1_unit = findViewById(R.id.countdown_part_1_unit);
+		countdown_part_2 = findViewById(R.id.countdown_part_2);
+		countdown_part_2_unit = findViewById(R.id.countdown_part_2_unit);
 		
 		date_select_container = findViewById(R.id.date_select_container);
 		date_select_text = findViewById(R.id.date_select_text);
@@ -299,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
 			
 			
 			// CALL AGAIN AFTER DELAY //
-			update_handler.postDelayed(this, 1000);
+			update_handler.postDelayed(this, 200);
 		}
 	};
 	
@@ -307,11 +313,14 @@ public class MainActivity extends AppCompatActivity {
 		HELPER: Update overview countdown
 	*/
 	private void update_overview_countdown(){
-		// MAYBE DISPLAY PLACEHOLDER //
+		// MAYBE DISPLAY PLACEHOLDERS //
 		if(birthdate[0] <= -1 || birthdate[1] <= -1 || birthdate[2] <= -1){
-			countdown_days.setText(R.string.countdown_days_placeholder);
-			countdown_hours.setText(R.string.countdown_hours_placeholder);
-			countdown_minutes.setText(R.string.countdown_minutes_placeholder);
+			countdown_part_0.setText(R.string.countdown_part_0_placeholder);
+			countdown_part_0_unit.setText(R.string.countdown_part_0_unit_placeholder);
+			countdown_part_1.setText(R.string.countdown_part_1_placeholder);
+			countdown_part_1_unit.setText(R.string.countdown_part_1_unit_placeholder);
+			countdown_part_2.setText(R.string.countdown_part_2_placeholder);
+			countdown_part_2_unit.setText(R.string.countdown_part_2_unit_placeholder);
 			return;
 		}
 		
@@ -323,10 +332,26 @@ public class MainActivity extends AppCompatActivity {
 		// format millis left
 		String[] countdown = format_countdown(birthday.millis_left());
 		
-		// set texts
-		countdown_days.setText(countdown[0]);
-		countdown_hours.setText(countdown[1]);
-		countdown_minutes.setText(countdown[2]);
+		
+		// DISPLAY 3 MOST SIGNIFICANT SEGMENTS //
+		if(get_most_significant_segment(countdown)[1].equals("d")){
+			// display days, hours and minutes
+			countdown_part_0.setText(countdown[0]);
+			countdown_part_0_unit.setText(R.string.countdown_unit_days);
+			countdown_part_1.setText(countdown[1]);
+			countdown_part_1_unit.setText(R.string.countdown_unit_hours);
+			countdown_part_2.setText(countdown[2]);
+			countdown_part_2_unit.setText(R.string.countdown_unit_minutes);
+			
+		} else {
+			// display hours, minutes and seconds
+			countdown_part_0.setText(countdown[1]);
+			countdown_part_0_unit.setText(R.string.countdown_unit_hours);
+			countdown_part_1.setText(countdown[2]);
+			countdown_part_1_unit.setText(R.string.countdown_unit_minutes);
+			countdown_part_2.setText(countdown[3]);
+			countdown_part_2_unit.setText(R.string.countdown_unit_seconds);
+		}
 	}
 	
 	/*
@@ -470,9 +495,6 @@ public class MainActivity extends AppCompatActivity {
 	}
 	private String[] format_countdown(double millis_left, boolean fill_up_with_zeroes){
 		// GET VALUES //
-		// make up for the missing seconds display
-		millis_left += DateUtils.MINUTE_IN_MILLIS;
-		
 		// days
 		int date_diff_days = (int)Math.floor(millis_left / DateUtils.DAY_IN_MILLIS);
 		millis_left -= (date_diff_days * DateUtils.DAY_IN_MILLIS);
@@ -483,6 +505,10 @@ public class MainActivity extends AppCompatActivity {
 		
 		// minutes
 		int date_diff_minutes = (int)Math.floor(millis_left / DateUtils.MINUTE_IN_MILLIS);
+		millis_left -= (date_diff_minutes * DateUtils.MINUTE_IN_MILLIS);
+		
+		// seconds
+		int date_diff_seconds = (int)Math.floor(millis_left / DateUtils.SECOND_IN_MILLIS);
 		
 		
 		// GET TEXTS //
@@ -503,9 +529,16 @@ public class MainActivity extends AppCompatActivity {
 		}
 		countdown_segment_minutes += Integer.toString(date_diff_minutes);
 		
+		// seconds
+		String countdown_segment_seconds = "";
+		if(fill_up_with_zeroes && date_diff_seconds < 10){
+			countdown_segment_seconds += "0";
+		}
+		countdown_segment_seconds += Integer.toString(date_diff_seconds);
+		
 		
 		// RETURN //
-		return new String[]{countdown_segment_days, countdown_segment_hours, countdown_segment_minutes};
+		return new String[]{countdown_segment_days, countdown_segment_hours, countdown_segment_minutes, countdown_segment_seconds};
 	}
 	
 	/*
@@ -518,8 +551,11 @@ public class MainActivity extends AppCompatActivity {
 		if(countdown[1].replace("0", "").length() > 0){
 			return new String[]{countdown[1], "h"};
 		}
+		if(countdown[2].replace("0", "").length() > 0){
+			return new String[]{countdown[2], "m"};
+		}
 		
-		return new String[]{countdown[2], "m"};
+		return new String[]{countdown[3], "s"};
 	}
 	
 	/*

@@ -3,12 +3,17 @@
 	<string name="content_description_app_icon">App icon</string>
 	<string name="select_date_button">&gt; Select Date of Birth &lt;</string>
 	
-	<string name="countdown_days_placeholder">000</string>
-	<string name="countdown_days_unit">d</string>
-	<string name="countdown_hours_placeholder">00</string>
-	<string name="countdown_hours_unit">h</string>
-	<string name="countdown_minutes_placeholder">00</string>
-	<string name="countdown_minutes_unit">m</string>
+	<string name="countdown_part_0_placeholder">000</string>
+	<string name="countdown_part_0_unit_placeholder">d</string>
+	<string name="countdown_part_1_placeholder">00</string>
+	<string name="countdown_part_1_unit_placeholder">h</string>
+	<string name="countdown_part_2_placeholder">00</string>
+	<string name="countdown_part_2_unit_placeholder">m</string>
+	
+	<string name="countdown_unit_days">d</string>
+	<string name="countdown_unit_hours">h</string>
+	<string name="countdown_unit_minutes">m</string>
+	<string name="countdown_unit_seconds">s</string>
 	
 	<string name="milestone_header">Milestones</string>
 	<string name="milestone_birthday_unit">birthday</string>
